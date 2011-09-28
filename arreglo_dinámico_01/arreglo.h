@@ -1,5 +1,6 @@
 /*
- * Implementacion de la clase Arreglo dinamico
+ * Implementacion de la clase Arreglo dinamico.
+ * FIXME esta implementacion no es capaz de manejar datos invalidos
  *
  * Copyright 2011 Maria Jose Garcia Tami
  * Copyright 2011 Laudin Alessandro Molina T <laudin.molina@gmail.com>
@@ -32,8 +33,10 @@ class Arreglo {
 
 template <class T>
 bool Arreglo<T>::CambiarTamanio(int nuevo_tamanio) {
+  // Caso 1
   if (tam_ == nuevo_tamanio)
     return true;
+  // Caso 5
   else if (nuevo_tamanio == 0) {
     if (ptr_datos_ != NULL) {
       tam_ = 0;
@@ -47,11 +50,16 @@ bool Arreglo<T>::CambiarTamanio(int nuevo_tamanio) {
 
     // Se pudo habiliar memoria?
     if (tmp != NULL) {
+
       // Si habian datos hay que copiarlos
       if (tam_ > 0) {
+
+        // Caso 3
         if (nuevo_tamanio > tam_)
           for (int i = 0; i < tam_; ++i)
             tmp[i] = ptr_datos_[i];
+
+        // Caso 2
         else
           for (int i = 0; i < nuevo_tamanio; ++i)
             tmp[i] = ptr_datos_[i];
@@ -73,16 +81,9 @@ bool Arreglo<T>::CambiarTamanio(int nuevo_tamanio) {
 
 template <class T>
 Arreglo<T>::Arreglo(int tamanio) {
-  // Solo se habilita memoria si se instancia para un tamanio dado
-  if (tamanio > 0) {
-    tam_ = 0;
-    ptr_datos_ = NULL;
-  } else {
-    // Inicialmente tamanio = 0, necesario asignarlo en el constructo porque
-    // CambiarTamanio necesita conocer el tamanio actual
-    tam_ = 0;
-    CambiarTamanio(tamanio);
-  }
+  tam_ = 0;
+  ptr_datos_ = NULL;
+  CambiarTamanio(tamanio);
 }
 
 template <class T>
@@ -92,7 +93,7 @@ Arreglo<T>::~Arreglo() {
 
 template <class T>
 void Arreglo<T>::ImprimeArreglo() {
-  for (int i = 0; i < tam(); i++)
+  for (int i = 0; i < tam_; i++)
     cout << ptr_datos_[i] << " ";
   cout << endl;
 }
@@ -104,7 +105,7 @@ int Arreglo<T>::tam() {
 
 template <class T>
 Arreglo<T> & Arreglo<T>::Insertar(const T &dato, int pos) {
-  if (pos >= 0 && pos <= tam()) {
+  if (pos >= 0 && pos <= tam_) {
     CambiarTamanio(tam() + 1);
 
     for (int i = tam() - 1; i > pos; --i)

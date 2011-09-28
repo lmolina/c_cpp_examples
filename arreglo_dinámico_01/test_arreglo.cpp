@@ -23,13 +23,19 @@ int main() {
   edades.Insertar(10, 0);
 
   cout << edades.tam() << endl;
-  cout << edades.Regresar(0) << endl;
 
-  for (int i = 0; i < 16; ++i)
+  for (int i = 1; i < 16; ++i)
     edades.Insertar(rand() % 90, i);
 
   for (int i = 0; i < edades.tam(); ++i)
     cout << edades.Regresar(i) << endl;
 
+  edades.Eliminar(1);
+  edades.Eliminar(99);
+  edades.Eliminar(-1);
+
+  for (int i = 0; i < edades.tam(); ++i)
+    cout << edades.Regresar(i) << endl;
+  
   return 0;
 }
