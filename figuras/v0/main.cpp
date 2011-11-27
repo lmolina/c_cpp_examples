@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "punto.h"
+#include "circulo.h"
 
 int main() {
   Punto p1(1, 2);
@@ -39,6 +40,20 @@ int main() {
   ++p3;
   p3.imprimir();
 
+  Circulo c(1, 2, 3);
+  c.imprimir();
+  cout << endl;
+  cout << c.contador();
+  cout << endl;
 
+  {
+      Circulo d(1, 2, 3);
+      cout << d.contador();
+      cout << endl;
+      cout << c.contador();
+      cout << endl;
+  }
+  cout << c.contador();
+  cout << endl;
   return 0;
 }
