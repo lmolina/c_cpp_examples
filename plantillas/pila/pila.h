@@ -10,8 +10,9 @@ class Pila {
    bool desapilar(T&);
    bool vacia() const;
    bool llena() const;
+   int tam() const;
   private:
-   int tam;
+   int tam_;
    int tope;
    T * ptr;
 };
@@ -19,14 +20,14 @@ class Pila {
 template< class T >
 Pila< T >::Pila(int tam) {
   // Por defecto se crea una pila de tamanio 10
-  this->tam = tam > 0 ? : 10;
+  this->tam_ = tam > 0 ? tam : 10;
 
   // Pila vacia, tope es el elemento -1
   tope = -1;
 
   // Habilitar memoria para un arreglo de tamanio this->tam de elementos
   // de tipo T 
-  ptr = new T[ this->tam ];
+  ptr = new T[ this->tam_ ];
 }
 
 template< class T >
@@ -69,7 +70,12 @@ bool Pila< T >::vacia() const {
 
 template< class T >
 bool Pila< T >::llena() const {
-  return tope == tam - 1;
+  return tope == tam_ - 1;
+}
+
+template< class T>
+int Pila< T >::tam() const {
+  return tope + 1;
 }
 
 #endif // PILA_H
