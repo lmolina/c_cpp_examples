@@ -37,5 +37,7 @@ int main() {
 
     cout << endl;
 
+    archivo_notas.close();
+
     return 0;
 }
