@@ -104,9 +104,7 @@ Estudiante ArchivoEstudiante::eliminar(const long & cedula) {
   archivo.seekp(0, ios::beg);
 
   while (leer(tmp)) {
-    cout << "XXXX" << endl;
     cout << tmp.nombre();
-    cout << "XXXX" << endl;
 
     if (tmp.cedula() != cedula) {
       aux << tmp.nombre() << delimitador << tmp.cedula() << delimitador << tmp.nota1()
