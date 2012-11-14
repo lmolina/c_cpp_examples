@@ -3,25 +3,24 @@
 
 class Persona {
   public:
-    Persona(string="NA", string="NA", long=-1, long=-1);
-    void set_nombre(string);
-    void set_cedula(string);
-    void set_telefono(long);
-    void set_fecha_nacimiento(long);
-    void set_fecha_nacimiento(int, int, int);
-    string get_nombre();
-    string get_cedula();
-    long get_telefono();
-    long get_fecha_nacimiento();
-    int edad();
-    void imprimir() const;
+    Persona(string = "-1", string = "-1", long = -1);
+    void nombre(const string &);
+    string nombre() const;
+    void apellido(const string &);
+    string apellido() const;
+    void telefono(const long &);
+    long telefono() const;
+    // void fecha_nacimiento(long);
+    // void fecha_nacimiento(int, int, int);
+    //long fecha_nacimiento() const;
+    //int edad() const;
+    void mostrar() const;
     ~Persona();
   private:
-    bool fecha_valida(long);
-    string nombre;
-    string cedula;
-    long fecha_nacimiento;
-    long telefono;
+    //bool fecha_valida(long) const;
+    string nombre_;
+    string apellido_;
+    long telefono_;
 };
 
 #endif
