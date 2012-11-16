@@ -1,3 +1,7 @@
+/*
+ * Copyright 2012 Laudin Molina T <laudin@ula.ve>
+ */
+
 # include <iostream>
 # include <string>
 using namespace std;

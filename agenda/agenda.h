@@ -1,23 +1,30 @@
-# ifndef AGENDA_H
-# define AGENDA_H
+/*
+ * Copyright 2012 Laudin Molina T <laudin@ula.ve>
+ */
 
-# include <vector>
-using namespace std;
+#ifndef AGENDA_AGENDA_H_
+#define AGENDA_AGENDA_H_
+
+#include <string>
+using std::string;
+
+#include <vector>
+using std::vector;
 
 # include "persona.h"
 
 class Agenda {
   public:
     Agenda();
-    vector<Persona> buscar_nombre(string &);
-    vector<Persona> buscar_apellido(string &);
-    Persona buscar_telefono(long telefono);
-    void agregar_persona(const Persona &);
-    void eliminar_persona(Persona &);
+    vector<Persona> buscar_nombre(string & nombre);
+    vector<Persona> buscar_apellido(string & apellido);
+    Persona buscar_telefono(unsigned int telefono);
+    void agregar_persona(const Persona & p);
+    void eliminar_persona(const Persona & p);
     void mostrar();
     ~Agenda();
   private:
     vector<Persona> contenedor;
 };
 
-# endif
+#endif  // AGENDA_AGENDA_H_

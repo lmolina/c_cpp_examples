@@ -1,9 +1,12 @@
-#ifndef PERSONA_H
-#define PERSONA_H
+#ifndef AGENDA_PERSONA_H_
+#define AGENDA_PERSONA_H_
+
+#include <string>
+using std::string;
 
 class Persona {
   public:
-    Persona(string = "-1", string = "-1", long = -1);
+    Persona(string nombre= "-1", string apellido= "-1", long telefono= -1);
     void nombre(const string &);
     string nombre() const;
     void apellido(const string &);
@@ -12,15 +15,16 @@ class Persona {
     long telefono() const;
     // void fecha_nacimiento(long);
     // void fecha_nacimiento(int, int, int);
-    //long fecha_nacimiento() const;
-    //int edad() const;
+    // long fecha_nacimiento() const;
+    // int edad() const;
     void mostrar() const;
     ~Persona();
   private:
-    //bool fecha_valida(long) const;
+    // bool fecha_valida(long) const;
+    // long fecha_nacimieno_;
     string nombre_;
     string apellido_;
     long telefono_;
 };
 
-#endif
+#endif  // AGENDA_PERSONA_H_

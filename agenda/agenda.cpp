@@ -1,43 +1,49 @@
-# include <iostream>
-# include <vector>
-using namespace std;
+/*
+ * Copyright 2012 Laudin Molina T <laudin@ula.ve>
+ */
 
+#include <iostream>
+using std::cout;
+using std::cerr;
+using std::endl;
 
-# include "agenda.h"
+#include <string>
+using std::string;
 
+#include <vector>
+using std::vector;
+
+#include "agenda.h"
 
 Agenda::Agenda() {
   /*vacio*/
 }
 
-vector<Persona> Agenda::buscar_nombre(string &nombre) {
-  vector <Persona> r;
-  vector<Persona>::iterator tmp;
+vector<Persona> Agenda::buscar_nombre(string & nombre) {
+  vector<Persona> r;
+  vector<Persona>::iterator it;
 
-  for (tmp = contenedor.begin(); tmp < contenedor.end(); ++tmp)
-    if (tmp->nombre() == nombre) {
-      r.push_back(*tmp);
+  for (it = contenedor.begin(); it < contenedor.end(); ++it)
+    if (it->nombre() == nombre) {
+      r.push_back(*it);
     }
 
   return r;
 }
 
-vector <Persona> Agenda::buscar_apellido(string &apellido) {}
-/*
-vector <Persona> Agenda::buscar_apellido(string & apellido){
-  vector <Persona> r;
-  Persona tmp;
-  for(//falta)
-  if(tmp.apellido()==apellido){
-    r.append(tmp);
+vector<Persona> Agenda::buscar_apellido(string & apellido) {
+  vector<Persona> r;
+  vector<Persona>::iterator it;
+
+  for (it = contenedor.begin(); it < contenedor.end(); ++it)
+    if (it->apellido() == apellido) {
+      r.push_back(*it);
     }
+
   return r;
+}
 
-  }
-*/
-
-Persona Agenda::buscar_telefono(long telefono) {
-
+Persona Agenda::buscar_telefono(unsigned int telefono) {
   vector<Persona>::iterator it;
 
   for (it = contenedor.begin(); it < contenedor.end(); ++it)
@@ -58,7 +64,7 @@ void Agenda::agregar_persona(const Persona &p) {
     contenedor.push_back(p);
 }
 
-void Agenda::eliminar_persona(Persona &p) {
+void Agenda::eliminar_persona(const Persona &p) {
   vector<Persona>::iterator it;
 
   for (it = contenedor.begin(); it < contenedor.end(); ++it)
@@ -70,7 +76,6 @@ void Agenda::eliminar_persona(Persona &p) {
 }
 
 void Agenda::mostrar() {
-
   vector<Persona>::iterator it;
 
   for (it = contenedor.begin(); it < contenedor.end(); ++it)
