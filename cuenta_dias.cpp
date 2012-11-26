@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-bool es_anyo_bisiesto(int anyo, int mes, int dia);
+bool es_anyo_bisiesto(int anyo);
 bool es_fecha_valida(int anyo, int mes, int dia);
 int dias_desde_inicio_de_anyo(int anyo, int mes, int dia);
 
@@ -33,6 +33,7 @@ int main() {
 }
 
 bool es_anyo_bisiesto(int anyo) {
+
 }
 
 
@@ -103,5 +104,5 @@ int dias_desde_inicio_de_anyo(int anyo, int mes, int dia) {
       break;
   }
 
-  return dias_transcurridos - 1;
+  return dias_transcurridos;
 }
